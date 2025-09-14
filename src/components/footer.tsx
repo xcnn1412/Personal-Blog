@@ -3,7 +3,7 @@ import { Linkedin, Github, Dribbble, Chromium} from "lucide-react";
 
 const Footer = () => {
     return(
-        <footer className="bg-stone-100 border-t border-stone-200">
+        <div className="bg-stone-100 border-t border-stone-200">
 
             <div className="
             container mx-auto px-4 md:px-6 py-4">
@@ -53,7 +53,7 @@ const Footer = () => {
 
             </div>
 
-        </footer>
+        </div>
     );
 };
 
