@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react"; 
 
 import CategorySelect from "./CatagorySelect";
+import MapBlogPost from "./MapBlogPost";
 
 const ArticleSection = () => {
     return (
@@ -70,6 +71,7 @@ const ArticleSection = () => {
                     </div>
 
             </div>
+        <MapBlogPost />
         </section>
     );
 };
@@ -78,37 +80,4 @@ export default ArticleSection;
 
 
 
-        // <div className="bg-stone-100 p-2 rounded-xl border border-stone-200">
-        //     <div className="flex items-center justify-between w-full"> 
-
-                
-        //         <div className="flex items-center gap-2">
-        //             <Button variant="secondary" className="rounded-lg">
-        //                 Highlight
-        //             </Button>
-        //             <Button variant="ghost" className="rounded-lg text-stone-500">
-        //                 Cat
-        //             </Button>
-        //             <Button variant="ghost" className="rounded-lg text-stone-500">
-        //                 Inspiration
-        //             </Button>
-        //             <Button variant="ghost" className="rounded-lg text-stone-500">
-        //                 General
-        //             </Button>
-        //         </div>
-
-
-        //         <div className="relative w-full max-w-xs">
-        //             <Input
-        //                 type="search"
-        //                 placeholder="Search"
-        //                 className="pl-4 pr-10 rounded-lg"
-        //             />
-        //             <Search
-        //                 className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400"
-        //                 size={20}
-        //             />
-        //         </div>
-
-        //     </div> 
-        // </div> 
+    
