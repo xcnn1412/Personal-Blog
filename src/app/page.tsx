@@ -1,15 +1,14 @@
-import Image from "next/image";
 import HeroSection from "@/components/herosection";
-import ArticleSection from "@/components/ArticleSection"; 
-import BlogCard from "@/components/BlogCard";
-import MapBlogPost from "@/components/MapBlogPost";
+import ArticleSection from "@/components/ArticleSection";
 
 export default function Home() {
   return (
     <main>
-      <HeroSection />
+      <HeroSection /> 
       <ArticleSection />
-      <MapBlogPost />
+
+      
+
     </main>
   )
 };

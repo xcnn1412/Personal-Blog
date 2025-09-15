@@ -1,12 +1,15 @@
-import Link from "next/link";
+"use client";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react"; 
+import { useState } from "react";
 
 import CategorySelect from "./CatagorySelect";
 import MapBlogPost from "./MapBlogPost";
 
 const ArticleSection = () => {
+    const [selectedCategory, setSelectedCategory] = useState("highlight");
     return (
         <section className="
         container mx-auto px-4 md:px-6 py-8">
@@ -16,8 +19,11 @@ const ArticleSection = () => {
                 Latest Articles {/* แก้ไข Typo จาก Lastest */}
                 </h2>
 
+                
+
     {/* --- Search Bar --- */}
     {/* div นี้จะครอบเฉพาะ Input และไอคอน Search */}
+
                 <div className="relative w-full">
                     <Input
                         type="search"
@@ -33,9 +39,12 @@ const ArticleSection = () => {
                 {/* --- Category Select --- */}
                 {/* 👇 ย้าย CategorySelect ออกมาอยู่นอก div ของ Search */}
                 <div>
-                    <CategorySelect />
+                    <CategorySelect 
+                        value={selectedCategory}
+                        onCategoryChange={setSelectedCategory}
+                    />
                 </div>
-                
+
             </div>
 
             <div className="
@@ -44,16 +53,32 @@ const ArticleSection = () => {
                 border border-stone-200
             ">
                     <div className="flex items-center gap-2">
-                        <Button variant="secondary" className="rounded-lg">
+                        <Button 
+                            variant={selectedCategory === "highlight" ? "secondary" : "ghost"}
+                            className="rounded-lg"
+                            onClick={() => setSelectedCategory("highlight")}
+                        >
                             Highlight
                         </Button>
-                        <Button variant="ghost" className="rounded-lg text-stone-500">
+                        <Button 
+                            variant={selectedCategory === "cat" ? "secondary" : "ghost"}
+                            className={`rounded-lg ${selectedCategory === "cat" ? "" : "text-stone-500"}`}
+                            onClick={() => setSelectedCategory("cat")}
+                        >
                             Cat
                         </Button>
-                        <Button variant="ghost" className="rounded-lg text-stone-500">
+                        <Button 
+                            variant={selectedCategory === "inspiration" ? "secondary" : "ghost"}
+                            className={`rounded-lg ${selectedCategory === "inspiration" ? "" : "text-stone-500"}`}
+                            onClick={() => setSelectedCategory("inspiration")}
+                        >
                             Inspiration
                         </Button>
-                        <Button variant="ghost" className="rounded-lg text-stone-500">
+                        <Button 
+                            variant={selectedCategory === "general" ? "secondary" : "ghost"}
+                            className={`rounded-lg ${selectedCategory === "general" ? "" : "text-stone-500"}`}
+                            onClick={() => setSelectedCategory("general")}
+                        >
                             General
                         </Button>
                     </div>
@@ -71,7 +96,12 @@ const ArticleSection = () => {
                     </div>
 
             </div>
-        {/* <MapBlogPost /> */}
+
+            {/* --- Blog Posts Section --- */}
+            <div className="mt-8">
+                <MapBlogPost key={selectedCategory} selectedCategory={selectedCategory} />
+            </div>
+        
         </section>
     );
 };

@@ -5,9 +5,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 import { Label } from "@/components/ui/label";
 
-const CategorySelect = () => {
+interface CategorySelectProps {
+  value: string;
+  onCategoryChange: (value: string) => void;
+}
+
+const CategorySelect = ({ value, onCategoryChange }: CategorySelectProps) =>{
   return (
     <div className="w-full space-y-2">
       {/* 1. เพิ่ม Label ด้านบน */}
@@ -16,7 +22,7 @@ const CategorySelect = () => {
       </Label>
 
       {/* 2. ส่วนของ Select Component */}
-      <Select>
+      <Select value={value} onValueChange={onCategoryChange}>
         <SelectTrigger id="category-select" className="w-full rounded-lg">
           <SelectValue placeholder="Highlight" />
         </SelectTrigger>
@@ -27,6 +33,7 @@ const CategorySelect = () => {
           <SelectItem value="general">General</SelectItem>
         </SelectContent>
       </Select>
+      
     </div>
   );
 };
