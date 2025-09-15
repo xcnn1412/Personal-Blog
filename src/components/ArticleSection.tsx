@@ -71,7 +71,7 @@ const ArticleSection = () => {
                     </div>
 
             </div>
-        <MapBlogPost />
+        {/* <MapBlogPost /> */}
         </section>
     );
 };
